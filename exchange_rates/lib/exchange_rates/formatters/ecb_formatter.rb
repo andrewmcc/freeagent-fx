@@ -1,4 +1,4 @@
-require_relative 'formatter'
+require 'exchange_rates/formatters/formatter'
 
 class ECBFormatter < Formatter
 

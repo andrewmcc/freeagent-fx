@@ -1,4 +1,4 @@
-require_relative '../lib/exchange_rates'
+require 'exchange_rates'
 
 describe DownloadFeed do
 

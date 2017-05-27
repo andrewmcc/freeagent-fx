@@ -1,3 +1,10 @@
+PATH
+  remote: .
+  specs:
+    exchange_rates (0.1.0)
+      nokogiri
+      nori
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -6,6 +13,7 @@ GEM
     nokogiri (1.7.2-x64-mingw32)
       mini_portile2 (~> 2.1.0)
     nori (2.6.0)
+    rake (10.5.0)
     rspec (3.6.0)
       rspec-core (~> 3.6.0)
       rspec-expectations (~> 3.6.0)
@@ -24,9 +32,10 @@ PLATFORMS
   x64-mingw32
 
 DEPENDENCIES
-  nokogiri
-  nori
-  rspec
+  bundler (~> 1.15)
+  exchange_rates!
+  rake (~> 10.0)
+  rspec (~> 3.0)
 
 BUNDLED WITH
    1.15.0

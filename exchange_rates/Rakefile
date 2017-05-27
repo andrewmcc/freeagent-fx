@@ -1,6 +1,11 @@
-require 'rake'
+require "bundler/gem_tasks"
+require "rspec/core/rake_task"
+require 'exchange_rates'
 
-task :default do
-  require_relative 'lib/exchange_rates'
+RSpec::Core::RakeTask.new(:spec)
+
+task :default => :spec
+
+task :download do
   DownloadFeed.new('http://www.ecb.europa.eu/stats/eurofxref/eurofxref-hist-90d.xml', File.join(File.dirname(__FILE__), 'lib/exchange_rates/data/latest.xml')).download()
 end

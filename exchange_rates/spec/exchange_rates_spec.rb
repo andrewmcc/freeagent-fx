@@ -1,4 +1,4 @@
-require_relative '../lib/exchange_rates.rb'
+require 'exchange_rates/exchange_rates'
 
 class TestFormatter
   def format
@@ -18,10 +18,10 @@ class TestFormatter
   end
 end
 
-describe ExchangeRates do
+describe ExchangeRate do
 
   before :each do
-    @fx = ExchangeRates.new(TestFormatter.new, '%.4f')
+    @fx = ExchangeRate.new(TestFormatter.new, '%.4f')
   end
 
   describe "list currencies" do
@@ -35,6 +35,19 @@ describe ExchangeRates do
       expect(@fx.list_currencies[1]).to eq('HUF')
       expect(@fx.list_currencies[2]).to eq('ILS')
       expect(@fx.list_currencies[3]).to eq('RON')
+    end
+
+  end
+
+  describe "list dates" do
+
+    it "returns a unique list of dates" do
+      expect(@fx.list_dates.length).to eq(2)
+    end
+
+    it "returns a reverse sorted list of dates" do
+      expect(@fx.list_dates[0]).to eq('2017-05-25')
+      expect(@fx.list_dates[1]).to eq('2017-05-24')
     end
 
   end
@@ -94,6 +107,5 @@ describe ExchangeRates do
     end
 
   end
-
 
 end

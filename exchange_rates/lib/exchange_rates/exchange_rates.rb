@@ -1,6 +1,4 @@
-require_relative 'formatters/ecb_formatter'
-
-class ExchangeRates
+class ExchangeRate
 
   def initialize(formatter, precision = '%.4f')
     @fx_data = formatter.format
@@ -18,6 +16,10 @@ class ExchangeRates
 
   def list_currencies
     @fx_data[:rates].uniq{|rate| rate[:currency] }.map{|c| c[:currency] }.sort
+  end
+
+  def list_dates
+    @fx_data[:rates].uniq{|date| date[:date] }.map{|c| c[:date] }.sort.reverse
   end
 
   private

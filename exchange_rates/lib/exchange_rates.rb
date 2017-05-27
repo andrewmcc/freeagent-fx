@@ -1,2 +1,4 @@
-require_relative 'exchange_rates/download_feed'
-require_relative 'exchange_rates/exchange_rates'
+require "exchange_rates/version"
+require "exchange_rates/download_feed"
+require "exchange_rates/formatters/ecb_formatter"
+require "exchange_rates/exchange_rates"
