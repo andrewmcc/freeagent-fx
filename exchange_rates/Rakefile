@@ -1,0 +1,6 @@
+require 'rake'
+
+task :default do
+  require_relative 'lib/exchange_rates'
+  DownloadFeed.new('http://www.ecb.europa.eu/stats/eurofxref/eurofxref-hist-90d.xml', File.join(File.dirname(__FILE__), 'lib/exchange_rates/data/latest.xml')).download()
+end
