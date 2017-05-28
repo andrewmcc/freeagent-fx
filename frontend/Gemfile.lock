@@ -1,7 +1,18 @@
+PATH
+  remote: ../exchange_rates
+  specs:
+    exchange_rates (0.1.0)
+      nokogiri
+      nori
+
 GEM
   remote: https://rubygems.org/
   specs:
+    mini_portile2 (2.1.0)
     minitest (5.10.2)
+    nokogiri (1.7.2-x64-mingw32)
+      mini_portile2 (~> 2.1.0)
+    nori (2.6.0)
     rack (1.6.8)
     rack-protection (1.5.3)
       rack
@@ -18,6 +29,7 @@ PLATFORMS
   x64-mingw32
 
 DEPENDENCIES
+  exchange_rates!
   minitest (~> 5.2)
   rack-test (~> 0.6)
   rake (~> 10.0)

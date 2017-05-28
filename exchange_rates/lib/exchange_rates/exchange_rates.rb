@@ -15,11 +15,17 @@ class ExchangeRate
   end
 
   def list_currencies
-    @fx_data[:rates].uniq{|rate| rate[:currency] }.map{|c| c[:currency] }.sort
+    @fx_data[:rates].uniq{ |rate| rate[:currency] }
+      .map{ |c| c[:currency] }
+      .push(@fx_data[:base_currency])
+      .sort
   end
 
   def list_dates
-    @fx_data[:rates].uniq{|date| date[:date] }.map{|c| c[:date] }.sort.reverse
+    @fx_data[:rates].uniq{ |date| date[:date] }
+      .map{ |c| c[:date] }
+      .sort
+      .reverse
   end
 
   private
@@ -37,19 +43,19 @@ class ExchangeRate
   end
 
   def invert(rate)
-    raise ZeroDivisionError, 'Rate should greater than zero' unless rate > 0
+    raise ZeroDivisionError, 'Rate should be greater than zero' unless rate > 0
     (1 / rate)
   end
 
   def cross_rate(from_rate, to_rate)
     unless (from_rate > 0 and from_rate.is_a? Numeric) and (to_rate > 0 and to_rate.is_a? Numeric)
-      raise ArgumentError, 'Rates should numbers greater than zero'
+      raise ArgumentError, 'Rates should be numbers greater than zero'
     end
     (to_rate / from_rate)
   end
 
   def set_precision(rate)
-    @precision % rate
+    (@precision % rate).to_f
   end
 
 end
