@@ -2,6 +2,7 @@ source "https://rubygems.org/"
 
 # App Stack
 gem "sinatra", "~> 1.4"
+gem "sinatra-param", require: "sinatra/param"
 gem "exchange_rates", :path => "../exchange_rates"
 
 group :development do

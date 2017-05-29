@@ -3,13 +3,19 @@
   <% if defined?(result) %>
     <div id="result">
       <div id="left" class="box">
-        <span class="currency"><%= amount %> <%= from_currency %></span>
+        <span class="currency">
+          <%= amount %> <%= from_currency %>
+        </span>
       </div>
       <div id="right" class="box">
-        <span class="currency"><%= '%.2f' % result %> <%= to_currency %></span>
+        <span class="currency">
+          <%= '%.2f' % result %> <%= to_currency %>
+        </span>
       </div>
     </div>
-    <div id="rate"><%= from_currency %> / <%= to_currency %> <%= rate %></div>
+    <div id="rate">
+      <%= from_currency %> / <%= to_currency %> <%= rate %>
+    </div>
   <% end %>
 
   <div id="form-inputs">
@@ -17,7 +23,7 @@
 
       <div class="form-group">
         <label for="amount">Amount:</label>
-        <input type="number" step="0.01" min="0.01" max="9999999999" class="form-control" name="amount" placeholder="Enter an amount" size="10" maxlength="10" value="<%= amount %>">
+        <input type="number" step="0.01" min="0.01" max="9999999999" class="form-control" name="amount" placeholder="Enter an amount" size="10" value="<%= amount %>" required>
       </div>
 
       <div class="form-group">
@@ -35,7 +41,7 @@
 
       <div class="form-group">
         <label for="date">From:</label>
-        <select class="form-control" name="from">
+        <select class="form-control" name="from_currency">
           <% currencies.each do |from| %>
             <option value="<%= from %>" <%= (from_currency == from) ? 'selected' : '' %>><%= from %></option>
           <%end %>
@@ -44,7 +50,7 @@
 
       <div class="form-group">
         <label for="date">To:</label>
-        <select class="form-control" name="to">
+        <select class="form-control" name="to_currency">
           <% currencies.each do |to| %>
             <option value="<%= to %>" <%= (to_currency == to) ? 'selected' : '' %>><%= to %></option>
           <%end %>
@@ -57,5 +63,4 @@
 
     </form>
   </div>
-
 </div>
