@@ -25,16 +25,15 @@ class Frontend < Sinatra::Base
     currencies = fx.list_currencies
     dates = fx.list_dates
 
-    param :amount,          Float, required: true
+    param :amount,          String, required: true
     param :date,            String, required: true
     param :from_currency,   String, required: true
     param :to_currency,     String, required: true
-
     one_of :from_currency, currencies
     one_of :to_currency, currencies
     one_of :date, dates
 
-    amount = params["amount"].to_f
+    amount = params["amount"]
     date = params["date"]
     from_currency = params["from_currency"]
     to_currency = params["to_currency"]
@@ -57,7 +56,7 @@ class Frontend < Sinatra::Base
   private
 
   def calculate_result(amount, rate)
-    (amount.to_f * rate.to_f)
+    amount.to_f * rate.to_f
   end
 
 end

@@ -20,7 +20,7 @@ Return the exchange rate for a specific date, base currency, and counter currenc
 ```ruby
 require("exchange_rates")
 
-exchangeRate = ExchangeRate.new(ECBFormatter.new)
+exchangeRate = ExchangeRate.new
 
 # Return the exchange rate for selected date, base currency, and counter currency.
 exchangeRate.at("2017-05-29", "GBP", "USD") #=> 1.2846
@@ -31,16 +31,10 @@ exchangeRate.list_currencies() #=> ["AUD", "BGN", "BRL", "CAD", "..."]
 # Return an array of dates for which conversion rate data is available.
 exchangeRate.list_dates() #=> ["2017-05-29", "2017-05-28", "2017-05-27", "..."]
 ```
-## Feed Download
-
-The following rake task can be used to schedule a download of the European Central Bank 90-day XML feed:
-```ruby
-rake download
-```
 
 ## Running Tests
 
-To run the unit tests, use the default rake task:
+To run the unit tests:
 
     $ cd exchange_rates
     $ rake
