@@ -20,7 +20,7 @@ Return the exchange rate for a specific date, base currency, and counter currenc
 ```ruby
 require("exchange_rates")
 
-exchangeRate = ExchangeRate.new(ECBFormatter.new)
+exchangeRate = ExchangeRate.new
 
 # Return the exchange rate for selected date, base currency, and counter currency.
 exchangeRate.at("2017-05-29", "GBP", "USD") #=> 1.2846
