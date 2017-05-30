@@ -16,7 +16,6 @@ Then execute:
 
 There are three available public methods:
 
-Return the exchange rate for a specific date, base currency, and counter currency
 ```ruby
 require("exchange_rates")
 
