@@ -15,7 +15,7 @@ class SaveFeed
         end
       end
     rescue => exception
-      puts "#{exception.class}: #{ex.message}"
+      puts "#{exception.class}: #{exception.message}"
     end
   end
 
