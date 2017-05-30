@@ -1,5 +1,5 @@
-require 'sinatra/param'
-require 'exchange_rates'
+require "sinatra/param"
+require "exchange_rates"
 
 class Frontend < Sinatra::Base
 

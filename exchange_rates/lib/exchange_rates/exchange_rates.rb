@@ -65,7 +65,7 @@ class ExchangeRate
   end
 
   def set_precision(rate)
-    ('%.4f' % rate).to_f
+    ("%.4f" % rate).to_f
   end
 
 end

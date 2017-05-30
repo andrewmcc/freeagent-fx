@@ -1,4 +1,4 @@
-require 'open-uri'
+require "open-uri"
 
 class SaveFeed
 
@@ -9,7 +9,7 @@ class SaveFeed
 
   def to_disk
     begin
-      open(@target, 'wb') do |file|
+      open(@target, "wb") do |file|
         open(@source) do |uri|
           file.write(uri.read)
         end
