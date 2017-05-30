@@ -14,7 +14,7 @@ Then execute:
 
 ## Usage
 
-There are three available public methods:
+There are three public methods available:
 
 ```ruby
 require("exchange_rates")
