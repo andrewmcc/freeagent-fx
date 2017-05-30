@@ -33,9 +33,10 @@ exchangeRate.list_dates() #=> ["2017-05-29", "2017-05-28", "2017-05-27", "..."]
 ## Feed Download
 
 The following rake task can be used to schedule a download of the European Central Bank 90-day XML feed:
-```ruby
-rake download
-```
+
+    $ cd exchange_rates
+    $ rake download
+
 
 ## Running Tests
 
