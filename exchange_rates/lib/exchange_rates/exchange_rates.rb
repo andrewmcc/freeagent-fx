@@ -4,7 +4,6 @@ class ExchangeRate
 
   def initialize(formatter = nil)
 
-    # Default to ECB Formatter unless an alternative is supplied
     if formatter.nil?
       @data = ECBFormatter.new.format
     else
@@ -14,8 +13,11 @@ class ExchangeRate
 
   def at(date, from, to)
     if is_base_currency(from) or is_base_currency(to)
+      # If "from" is the same as the base currency (EUR) just lookup
+      # the rate value, otherwise lookup and invert.
       rate = is_base_currency(from) ? rate(date, to) : invert(rate(date, from))
     else
+      # Neither currency is base, so calculate cross rate.
       rate = cross_rate(rate(date, from), rate(date, to))
     end
     set_precision(rate)
@@ -43,6 +45,7 @@ class ExchangeRate
 
   def rate(date, currency)
     begin
+      # Search rates array for a rate matching given date and currency, returning rate as a Float
       @data[:rates].find{|rate| (rate[:date] == date and rate[:currency] == currency) }[:rate].to_f
     rescue
       raise ArgumentError, "No match found for date and currency"
