@@ -4,14 +4,16 @@ require "exchange_rates/save_feed"
 class ECBFormatter < Formatter
 
   def initialize
+
     @xml_file = File.join(File.dirname(__FILE__), "../data/latest.xml")
 
-    # Save feed to file if it doesn't exist
+    # Save feed to disk if it doesn't already exist
     unless File.exist?(@xml_file)
-      SaveFeed.new("http://www.ecb.europa.eu/stats/eurofxref/eurofxref-hist-90d.xml", @xml_file).to_disk
+     SaveFeed.new("http://www.ecb.europa.eu/stats/eurofxref/eurofxref-hist-90d.xml", @xml_file).to_disk
     end
 
     file_to_hash
+
   end
 
   def format
