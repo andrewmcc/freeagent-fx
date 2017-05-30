@@ -8,7 +8,7 @@ class Frontend < Sinatra::Base
   set :public_folder => "public", :static => true
 
   get "/" do
-    fx = ExchangeRate.new(ECBFormatter.new)
+    fx = ExchangeRate.new
     erb :index, :locals => {
       :currencies => fx.list_currencies,
       :dates => fx.list_dates,
@@ -20,7 +20,7 @@ class Frontend < Sinatra::Base
 
   post "/" do
 
-    fx = ExchangeRate.new(ECBFormatter.new)
+    fx = ExchangeRate.new
 
     currencies = fx.list_currencies
     dates = fx.list_dates
