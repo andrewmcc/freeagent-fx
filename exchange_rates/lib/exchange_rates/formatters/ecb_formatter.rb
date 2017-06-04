@@ -18,7 +18,7 @@ class ECBFormatter < Formatter
 
   def format
     @fx_rates = { :base_currency => "EUR", :rates => [] }
-    @ecb_rates["Envelope"]["Cube"]["Cube"].each do |day|
+    @rates["Envelope"]["Cube"]["Cube"].each do |day|
       day["Cube"].each do |pair|
         rate = { :date => day["@time"], :currency => pair["@currency"], :rate => pair["@rate"] }
         @fx_rates[:rates].push(rate)
